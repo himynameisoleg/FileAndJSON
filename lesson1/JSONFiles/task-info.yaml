@@ -3,54 +3,54 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 570
-    length: 122
+  - offset: 752
+    length: 165
     placeholder_text: '/* TODO: create a JSON object with the contents of  "filename".
       You can use the method below to help you read the file. */'
     initial_state:
       length: 122
       offset: 570
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       JsonObject obj = (JsonObject) Jsoner.deserialize(readFile(filename), new JsonObject());
             return obj;
-  - offset: 802
-    length: 62
+  - offset: 1027
+    length: 44
     placeholder_text: /* Complete this using the parameter passed to this method.
       */
     initial_state:
       length: 62
       offset: 802
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: new BufferedReader(new FileReader(filename))
-  - offset: 877
-    length: 48
+  - offset: 1223
+    length: 76
     placeholder_text: /* Put in code to read the file line by line. */
     initial_state:
       length: 48
       offset: 877
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       String line = reader.readLine();
                 while(line != null ) {
                     content = content + line;
                     line = reader.readLine();
                 }
-  - offset: 1036
-    length: 50
+  - offset: 1411
+    length: 8
     placeholder_text: /* Put in the variable that should be returned. */
     initial_state:
       length: 50
       offset: 1036
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: content;
   text: |-
     import com.github.cliftonlabs.json_simple.JsonObject;
@@ -119,8 +119,8 @@ files:
 - name: src/Database.java
   visible: true
   placeholders:
-  - offset: 136
-    length: 83
+  - offset: 198
+    length: 0
     placeholder_text: "/* TODO \nDeclare a member variable that can \nbe EASILY set\
       \ from the constructor. */"
     initial_state:
@@ -128,27 +128,27 @@ files:
       offset: 136
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: public JsonObject data;
-  - offset: 267
-    length: 50
+  - offset: 270
+    length: 0
     placeholder_text: "/* TODO \nset the memebr variable declared above.*/"
     initial_state:
       length: 50
       offset: 267
     initialized_from_dependency: false
     selected: false
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: this.data = data;
-  - offset: 383
-    length: 46
+  - offset: 793
+    length: 0
     placeholder_text: "/* TODO \nComplete this method as specified. */"
     initial_state:
       length: 46
       offset: 383
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       JsonArray rests = (JsonArray)this.data.get("restaurants");
               int i=0;
@@ -159,16 +159,16 @@ files:
                   return null;
               else
                   return result;
-  - offset: 491
-    length: 84
+  - offset: 1323
+    length: 0
     placeholder_text: "/* TODO \nComplete this method as specified.\n The previous\
       \ method may be of help. \n*/"
     initial_state:
       length: 84
       offset: 491
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       JsonObject result = getRestaurant(name);
               JsonArray reviews = (JsonArray) result.get("reviews");
@@ -2069,5 +2069,8 @@ files:
     \ representation of what caused the exception. */\n\tpublic Object getUnexpectedObject(){\n\
     \t\treturn this.unexpectedObject;\n\t}\n}\n"
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 14 Feb 2021 23:56:23 UTC
 record: -1

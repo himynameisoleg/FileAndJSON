@@ -1,9 +1,11 @@
+import com.github.cliftonlabs.json_simple.JsonException;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 public class Task {
   public static void main(String[] args){
@@ -15,17 +17,36 @@ public class Task {
   }
 
   public JsonObject readJson(String filename) {
-      /* TODO: create a JSON object with the contents of  "filename". You can use the method below to help you read the file. */
+      String jsonString = readFile(filename);
+
+      JsonObject obj = new JsonObject();
+
+      try {
+          obj = (JsonObject) Jsoner.deserialize(jsonString);
+      } catch (JsonException e) {
+          e.printStackTrace();
+      }
+
+      return obj;
   }
 
   public String readFile(String filename){
       String content = "";
-      try(BufferedReader reader = /* Complete this using the parameter passed to this method. */){
-          /* Put in code to read the file line by line. */
+
+      try(BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+          String s = reader.readLine();
+
+          while (s != null) {
+              content += s;
+              s = reader.readLine();
+          }
+          content = new String(content.getBytes(), StandardCharsets.UTF_8);
       } catch(IOException e) {
           e.printStackTrace();
           System.exit(-1);
       }
-      return /* Put in the variable that should be returned. */
+
+
+      return content;
   }
 }
