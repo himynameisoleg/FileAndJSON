@@ -3,8 +3,8 @@ files:
 - name: src/Task.java
   visible: true
   placeholders:
-  - offset: 282
-    length: 68
+  - offset: 320
+    length: 55
     placeholder_text: |-
       /* TODO.
       Change what needs to go here to start reading "filename" */
@@ -12,22 +12,22 @@ files:
       length: 68
       offset: 282
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: new BufferedInputStream(new FileInputStream(filename))
-  - offset: 381
-    length: 83
+  - offset: 407
+    length: 439
     placeholder_text: "/* TODO \nCreate a byte array of about 1024 bytes or however\
       \ many bytes you want. */"
     initial_state:
       length: 83
       offset: 381
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: new byte[1024]
-  - offset: 506
-    length: 145
+  - offset: 423
+    length: 423
     placeholder_text: "/* TODO \nCreate a while loop to read the contents of the file\
       \ and put them in the variable \"contents\" declared at the beginning of the\
       \ method. */"
@@ -35,32 +35,32 @@ files:
       length: 145
       offset: 506
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |-
       while ((lengthRead = in.read(buffer)) > 0) {
                       contents = contents + new String(buffer,0,lengthRead);
                   }
-  - offset: 669
-    length: 43
+  - offset: 586
+    length: 260
     placeholder_text: "/* TODO \nPut the correct Exception here. */"
     initial_state:
       length: 43
       offset: 669
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: IOException e
-  - offset: 802
-    length: 71
+  - offset: 586
+    length: 260
     placeholder_text: "/* TODO \nReturn a Databse object initialized with the contents\
       \ read. */"
     initial_state:
       length: 71
       offset: 802
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: new Database(contents)
   text: "import java.io.*;\n\npublic class Task {\n    public static void main(String[]\
     \ ar) {\n        Task t = new Task();\n        Database d = t.readCSV(\"./resources/iris.data\"\
@@ -96,8 +96,8 @@ files:
 - name: src/Database.java
   visible: true
   placeholders:
-  - offset: 614
-    length: 151
+  - offset: 1155
+    length: 0
     placeholder_text: "/* TODO \nThis constructor should take the contents of a CSV\
       \ file and initialize the memember variables of the Database class.\n*/"
     initial_state:
@@ -105,7 +105,7 @@ files:
       offset: 613
     initialized_from_dependency: false
     selected: true
-    status: Unchecked
+    status: Solved
     encrypted_possible_answer: |2-
               String[] lines = contents.split("\n");
               this.colNames = lines[0].split(",");
@@ -114,8 +114,8 @@ files:
                   this.data[i - 1] = lines[i].split(",");
               }
               this.numRows = lines.length - 1;
-  - offset: 828
-    length: 146
+  - offset: 1335
+    length: 31
     placeholder_text: |-
       /* TODO */
       This method should return the data contained on row "row" and the column matching  @columname
@@ -123,8 +123,8 @@ files:
       length: 104
       offset: 804
     initialized_from_dependency: false
-    selected: false
-    status: Unchecked
+    selected: true
+    status: Solved
     encrypted_possible_answer: |2-
               int col = 0;
               for(col=0;col<this.colNames.length && !(this.colNames[col].equals(columnName));col++);
@@ -146,5 +146,8 @@ files:
 - name: test/iris.data
   visible: true
   learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 14 Feb 2021 18:48:11 UTC
 record: -1

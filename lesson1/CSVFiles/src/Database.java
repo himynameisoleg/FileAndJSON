@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Database {
@@ -30,16 +31,31 @@ public class Database {
     }
 
     public Database(String contents) {
+        String [] lines = contents.split("\\r?\\n");
+        this.setColNames(lines[0].split(","));
+        this.setNumRows(lines.length - 1);
 
-        /* TODO
-        This constructor should take the contents of a CSV file and initialize the memember variables of the Database class.
-        */
+        int rows = this.getNumRows();
+        int cols = lines[0].split(",").length;
+
+        String [][] data = new String [rows][cols];
+
+        for (int i = 1; i < rows; i++) {
+            String[] temp = lines[i].split(",");
+            for (int j = 0; j < cols; j++) {
+                data[i - 1][j] = temp[j];
+            }
+        }
+
+
+        this.setData(data);
     }
 
-    public String getValue(String columnName,int row){
-        /* TODO */
-        //This method should return the data contained on row "row" and the column matching  @columname
-        return "hello";
+    public String getValue(String columnName, int row) {
+        String [][] data = this.getData();
+        int col = Arrays.asList(this.getColNames()).indexOf(columnName);
+
+        return data[row][col];
     }
 
 }
